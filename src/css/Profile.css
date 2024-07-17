@@ -1,53 +1,55 @@
 .profile-container {
     padding: 20px;
-    background-color: #1e1e2f;
-    color: #e0e0e0;
+    background-color: #F7CAC9; /* Light Pink background */
+    color: #2E2E2E; /* Dark Gray text color */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  
-  h1 {
-    color: #00bcd4;
-  }
-  
-  .profile-pic img {
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+}
+
+h1 {
+    color: #FF6F61; /* Coral for headings */
+}
+
+.profile-pic img {
     border-radius: 50%;
     width: 100px;
     height: 100px;
-  }
-  
-  .profile-info {
+}
+
+.profile-info {
     display: flex;
     flex-direction: column;
-  }
-  
-  .profile-info label {
+}
+
+.profile-info label {
     margin-top: 10px;
-  }
-  
-  .profile-info input {
-    padding: 10px;
+}
+
+.profile-info input {
+    padding: 15px; /* Increase input padding for visibility */
     margin-top: 5px;
     border: none;
     border-radius: 4px;
-    background-color: #3b3b52;
-    color: #e0e0e0;
-  }
-  
-  button {
+    background-color: #FFFFFF; /* White background for inputs */
+    color: #2E2E2E; /* Dark Gray text color */
+    font-size: 16px; /* Adjust font size */
+}
+
+button {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 15px 30px; /* Larger padding for button */
     border: none;
     border-radius: 4px;
-    background-color: #00bcd4;
-    color: #fff;
+    background-color: #6B5B95; /* Purple for button */
+    color: #FFFFFF; /* Button text color */
     cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0097a7;
-  }
-  
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #88B04B; /* Green accent color on hover */
+}

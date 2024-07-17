@@ -3,31 +3,32 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #1e1e2f;
-  }
-  
-  .navbar-logo a {
-    color: #00bcd4;
+    background-color: #F7CAC9; /* Light Pink background */
+    color: #2E2E2E; /* Dark Gray text color */
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+}
+
+.navbar-logo a {
+    color: #FF6F61; /* Coral for logo */
     font-size: 1.5em;
     text-decoration: none;
-  }
-  
-  .navbar-links {
+}
+
+.navbar-links {
     list-style: none;
     display: flex;
     gap: 15px;
-  }
-  
-  .navbar-links li a {
-    color: #e0e0e0;
+}
+
+.navbar-links li a {
+    color: #2E2E2E; /* Dark Gray text color */
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-  }
-  
-  .navbar-links li a:hover {
-    background-color: #00bcd4;
-    color: #fff;
-  }
-  
+}
+
+.navbar-links li a:hover {
+    background-color: #6B5B95; /* Purple accent color on hover */
+    color: #FFFFFF; /* Text color on hover */
+}

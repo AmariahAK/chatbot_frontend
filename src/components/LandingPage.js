@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1>Welcome to Rafiki</h1>
+      <h1>Welcome to SupportAI</h1>
       <div className="chat-container">
         <div className="chat-history">
           {chatHistory.map((msg) => (

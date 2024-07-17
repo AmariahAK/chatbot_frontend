@@ -1,73 +1,77 @@
 .home-container {
     padding: 20px;
-    background-color: #F5F5F5;
-    color: #212121;
+    background-color: #F7CAC9; /* Light Pink background */
+    color: #2E2E2E; /* Dark Gray text color */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  h1 {
-    color: #4CAF50;
-  }
-  
-  .chat-container {
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+}
+
+h1 {
+    color: #FF6F61; /* Coral for headings */
+}
+
+.chat-container {
     width: 100%;
     max-width: 600px;
-    background-color: #FFFFFF;
+    background-color: #ffffff; /* White background for chat container */
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .chat-history {
+}
+
+.chat-history {
     height: 300px;
     overflow-y: auto;
     margin-bottom: 20px;
-  }
-  
-  .chat-message {
+}
+
+.chat-message {
     margin: 10px 0;
     padding: 10px;
     border-radius: 4px;
-  }
-  
-  .chat-message.user {
-    background-color: #E0E0E0;
+}
+
+.chat-message.user {
+    background-color: #FFFFFF; /* White background for user messages */
     text-align: right;
-  }
-  
-  .chat-message.ai {
-    background-color: #FFECB3;
+    color: #2E2E2E; /* Dark Gray text color */
+}
+
+.chat-message.ai {
+    background-color: #FFFFFF; /* White background for AI messages */
     text-align: left;
-  }
-  
-  .chat-input {
+    color: #2E2E2E; /* Dark Gray text color */
+}
+
+.chat-input {
     display: flex;
-  }
-  
-  .chat-input input {
+    margin-top: 20px;
+}
+
+.chat-input input {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #CCCCCC;
+    padding: 15px; /* Increase input padding for visibility */
+    border: none;
     border-radius: 4px 0 0 4px;
-    background-color: #FFFFFF;
-    color: #212121;
-  }
-  
-  .chat-input button {
-    padding: 10px 20px;
+    background-color: #FFFFFF; /* White background for input */
+    color: #2E2E2E; /* Dark Gray text color */
+    font-size: 16px; /* Adjust font size */
+}
+
+.chat-input button {
+    padding: 15px 20px; /* Larger padding for button */
     border: none;
     border-radius: 0 4px 4px 0;
-    background-color: #4CAF50;
-    color: #FFFFFF;
+    background-color: #88B04B; /* Green accent color for button */
+    color: #FFFFFF; /* Button text color */
     cursor: pointer;
-  }
-  
-  .chat-input button:hover {
-    background-color: #388E3C;
-  }
-  
+    transition: background-color 0.3s ease;
+}
+
+.chat-input button:hover {
+    background-color: #6B5B95; /* Darker Purple accent color on hover */
+}
