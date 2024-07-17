@@ -22,7 +22,7 @@ const SignUp = () => {
       }
 
       // Send signup request to backend
-      const res = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+      const res = await axios.post('http://localhost:5000', { username, email, password });
       signUp(res.data); // Assuming backend responds with user data
       navigate('/home'); // Redirect to home page after successful signup
     } catch (error) {

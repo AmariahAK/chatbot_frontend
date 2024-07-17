@@ -9,5 +9,4 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'sqlite:///data.db'
     # Disable SQLAlchemy modification tracking
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    # Set a secret key for sessions and other security-related uses
-    SECRET_KEY = 'your_secret_key_here'
+    # Note: SECRET_KEY is now loaded from environment variables
