@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Home.css'; // Ensure your CSS supports the new design
 
 const Home = () => {
@@ -23,6 +24,9 @@ const Home = () => {
           <p>We direct you to the most suitable agent or department, saving time and ensuring your query reaches the right person.</p>
         </div>
       </section>
+      <div className="get-started">
+        <Link to="/login" className="btn btn-primary">Get Started</Link>
+      </div>
     </div>
   );
 };

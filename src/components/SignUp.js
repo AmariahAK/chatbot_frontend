@@ -1,8 +1,10 @@
+
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
-import '../css/SignUp.css';
+import '../css/SignUp.css'; // Ensure your CSS file matches this name
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -13,11 +15,19 @@ const SignUp = () => {
 
   const handleSignUp = async () => {
     try {
+      // Basic form validation
+      if (!username || !email || !password) {
+        alert('Please fill out all fields.');
+        return;
+      }
+
+      // Send signup request to backend
       const res = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
-      signUp(res.data);
-      navigate('/home');
+      signUp(res.data); // Assuming backend responds with user data
+      navigate('/home'); // Redirect to home page after successful signup
     } catch (error) {
-      console.error(error);
+      console.error('Signup failed:', error);
+      alert('Signup failed. Please try again.');
     }
   };
 

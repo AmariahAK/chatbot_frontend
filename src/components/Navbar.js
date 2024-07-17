@@ -1,14 +1,15 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../components/AuthContext';
-import '../css/NavBar.css';
+import { useAuth } from './AuthContext';
+import '../css/Navbar.css'; // Ensure your CSS file matches this name
 
 const Navbar = () => {
   const { isAuthenticated, user, logout } = useAuth();
 
   const handleLogout = async () => {
     try {
-      await logout();
+      await logout(); // Logout function from AuthContext
     } catch (error) {
       console.error('Logout failed', error);
     }

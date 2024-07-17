@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import axios from 'axios';
 import '../css/Chat.css';
 
 const Chat = () => {
   const { user, chats, saveChat } = useAuth();
   const [input, setInput] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
+  const navigate = useNavigate();
+
+  // Redirect to login if user is not authenticated
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   // Load chat history when user or chats update
   useEffect(() => {
@@ -20,15 +30,36 @@ const Chat = () => {
   };
 
   // Handle sending a message
-  const handleSend = () => {
+  const handleSend = async () => {
     if (input.trim() && user) {
       const newMessage = { id: chatHistory.length + 1, text: input, from: 'user' };
-      const placeholderMessage = { id: chatHistory.length + 2, text: 'This is a placeholder response from SupportAI.', from: 'ai' };
-      
-      const newHistory = [...chatHistory, newMessage, placeholderMessage];
-      setChatHistory(newHistory); // Update local state
-      saveChat(user.id, newHistory); // Persist to storage
+
+      // Update local state with new user message
+      const updatedHistory = [...chatHistory, newMessage];
+      setChatHistory(updatedHistory);
+      saveChat(user.id, updatedHistory); // Persist to storage
       setInput(''); // Clear input field
+
+      try {
+        // Send user message to backend for processing
+        const response = await axios.post('http://localhost:5000/api/chat', {
+          userId: user.id,
+          message: input
+        });
+
+        // Handle AI response from backend
+        const aiResponse = response.data.message;
+        const aiMessage = { id: chatHistory.length + 2, text: aiResponse, from: 'ai' };
+
+        // Update local state with AI response
+        const updatedHistoryWithAI = [...updatedHistory, aiMessage];
+        setChatHistory(updatedHistoryWithAI);
+        saveChat(user.id, updatedHistoryWithAI); // Persist AI response to storage
+
+      } catch (error) {
+        console.error('Failed to send or receive message:', error);
+        // Display error message or handle error state
+      }
     }
   };
 
@@ -38,7 +69,7 @@ const Chat = () => {
       <div className="chat-container">
         <div className="chat-history">
           {chatHistory.map((msg) => (
-            <div key={msg.id} className={`chat-message ${msg.from === 'user' ? 'user' : 'ai'}`}>
+            <div key={msg.id} className={`chat-message ${msg.from}`}>
               {msg.text}
             </div>
           ))}
