@@ -1,20 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../components/AuthContext';
 import '../css/NavBar.css';
 
-const Navbar = ({ isLoggedIn }) => {
+const Navbar = () => {
+  const { isAuthenticated, user, logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/">SupportAI</Link>
       </div>
       <ul className="navbar-links">
-        <li><Link to="/home">Home</Link></li>
-        {/* Conditionally render Profile link */}
-        {isLoggedIn && <li><Link to="/profile">Profile</Link></li>}
-        {/* Conditionally render Login or Logout based on isLoggedIn */}
-        {isLoggedIn ? (
-          <li><Link to="/logout">Logout</Link></li>
+        {isAuthenticated ? (
+          <>
+            <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/chat">Chat</Link></li>
+            <li><span>{user.username}</span></li>
+            <li><img src={user.profilePic} alt="Profile" className="profile-pic" /></li>
+            <li><Link to="/logout" onClick={handleLogout}>Logout</Link></li>
+          </>
         ) : (
           <>
             <li><Link to="/login">Login</Link></li>
