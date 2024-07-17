@@ -1,0 +1,75 @@
+/* Login.css */
+
+.login-container {
+    padding: 20px;
+    background-color: #1e1e2f; /* Dark background similar to home.css */
+    color: #e0e0e0; /* Light text color */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #2c2c3e; /* Darker background color */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #00bcd4; /* Blue color similar to home.css */
+  }
+  
+  .login-form label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #e0e0e0; /* Light text color */
+  }
+  
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3b3b52; /* Darker background for inputs */
+    color: #e0e0e0; /* Light text color */
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #00bcd4; /* Blue button color */
+    color: #fff; /* White text color */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .login-form button:hover {
+    background-color: #0097a7; /* Darker blue on hover */
+  }
+  
+  .login-form .signup-link {
+    margin-top: 12px;
+    text-align: center;
+  }
+  
+  .login-form .signup-link a {
+    color: #00bcd4; /* Blue link color */
+    text-decoration: none;
+  }
+  
+  .login-form .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
