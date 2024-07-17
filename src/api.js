@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'YOUR_API_BASE_URL', // Replace with your Azure API base URL
+  baseURL: 'YOUR_API_BASE_URL', // Replace with your API base URL
 });
 
 export const fetchData = async () => {
