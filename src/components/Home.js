@@ -20,7 +20,7 @@ const Home = () => {
   const handleSend = () => {
     if (input.trim()) {
       const newMessage = { id: chatHistory.length + 1, text: input, from: 'user' };
-      const newHistory = [...chatHistory, newMessage, { id: chatHistory.length + 2, text: 'This is a placeholder response from Rafiki AI.', from: 'ai' }];
+      const newHistory = [...chatHistory, newMessage, { id: chatHistory.length + 2, text: 'This is a placeholder response from SupportAI.', from: 'ai' }];
       setChatHistory(newHistory);
       saveChat(user.id, newHistory);
       setInput('');
@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1>Welcome to Rafiki</h1>
+      <h1>Welcome to SupportAI</h1>
       <div className="chat-container">
         <div className="chat-history">
           {chatHistory.map((msg) => (
