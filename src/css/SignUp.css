@@ -13,7 +13,7 @@
 .signup-form {
     width: 100%;
     max-width: 400px;
-    background-color: #cbaece; /* White background for form */
+    background-color: #FFFFFF; /* White background for form */
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -32,11 +32,17 @@
 .form-group input {
     width: calc(100% - 20px); /* Adjusted width */
     padding: 15px; /* Increase input padding for visibility */
-    border: none;
+    border: 1px solid #EBECF0; /* Lighter gray border for inputs */
     border-radius: 4px;
     background-color: #FFFFFF; /* White background for inputs */
     color: #2E2E2E; /* Dark Gray text color */
     font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Add transition for focus effect */
+}
+
+.form-group input:focus {
+    background-color: #EBECF0; /* Lighter shade on focus for visibility */
+    border-color: #FF6F61; /* Coral outline color on focus */
 }
 
 button {
@@ -51,5 +57,22 @@ button {
 }
 
 button:hover {
-    background-color: #3aac58; /* Purple accent color on hover */
+    background-color: #3AAC58; /* Green accent color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-container {
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
+
+    .signup-form {
+        max-width: 90%; /* Adjust max-width for smaller screens */
+        margin: 10px auto; /* Center the form horizontally */
+    }
+}
+
+/* Accessibility Enhancements */
+input:focus, button:focus {
+    outline: none; /* Remove outline */
 }

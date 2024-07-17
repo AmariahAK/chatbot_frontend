@@ -23,6 +23,8 @@ h1 {
 .profile-info {
     display: flex;
     flex-direction: column;
+    width: 80%; /* Set a maximum width for better alignment */
+    max-width: 500px; /* Maximum width for larger screens */
 }
 
 .profile-info label {
@@ -52,4 +54,22 @@ button {
 
 button:hover {
     background-color: #88B04B; /* Green accent color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
+
+    .profile-info {
+        width: 90%; /* Adjust width for smaller screens */
+        max-width: 350px; /* Smaller maximum width for better fit */
+    }
+}
+
+/* Accessibility Enhancements */
+input:focus, button:focus {
+    outline: 2px solid #FF6F61; /* Highlight focus state with coral */
+    outline-offset: 2px;
 }

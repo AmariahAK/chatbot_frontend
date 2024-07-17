@@ -1,48 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../components/AuthContext';
-import '../css/Home.css';
+import React from 'react';
+import '../css/Home.css'; // Ensure your CSS supports the new design
 
 const Home = () => {
-  const { user, chats, saveChat } = useAuth();
-  const [input, setInput] = useState('');
-  const [chatHistory, setChatHistory] = useState([]);
-
-  useEffect(() => {
-    if (user && chats[user.id]) {
-      setChatHistory(chats[user.id]);
-    }
-  }, [user, chats]);
-
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
-
-  const handleSend = () => {
-    if (input.trim()) {
-      const newMessage = { id: chatHistory.length + 1, text: input, from: 'user' };
-      const newHistory = [...chatHistory, newMessage, { id: chatHistory.length + 2, text: 'This is a placeholder response from SupportAI.', from: 'ai' }];
-      setChatHistory(newHistory);
-      saveChat(user.id, newHistory);
-      setInput('');
-    }
-  };
-
   return (
     <div className="home-container">
-      <h1>Welcome to SupportAI</h1>
-      <div className="chat-container">
-        <div className="chat-history">
-          {chatHistory.map((msg) => (
-            <div key={msg.id} className={`chat-message ${msg.from}`}>
-              {msg.text}
-            </div>
-          ))}
+      <h1>Welcome to Support AI</h1>
+      <section className="info-card">
+        <h2>Revolutionizing Customer Service</h2>
+        <p>Experience instant support with our AI, designed to answer your queries instantly, reduce wait times, and guide you through your journey with us.</p>
+      </section>
+      <section className="benefits">
+        <div className="card">
+          <h3>Immediate Assistance</h3>
+          <p>Get quick answers to your questions, 24/7.</p>
         </div>
-        <div className="chat-input">
-          <input type="text" value={input} onChange={handleInputChange} placeholder="Ask a question..." />
-          <button onClick={handleSend}>Send</button>
+        <div className="card">
+          <h3>Personalized Experience</h3>
+          <p>Our AI learns from every interaction, offering a more personalized service over time.</p>
         </div>
-      </div>
+        <div className="card">
+          <h3>Efficient Routing</h3>
+          <p>We direct you to the most suitable agent or department, saving time and ensuring your query reaches the right person.</p>
+        </div>
+      </section>
     </div>
   );
 };

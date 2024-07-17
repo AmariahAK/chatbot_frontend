@@ -21,6 +21,7 @@ h1 {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Center the chat container horizontally */
 }
 
 .chat-history {
@@ -53,24 +54,43 @@ h1 {
 
 .chat-input input {
     flex: 1;
-    padding: 15px; /* Increase input padding for visibility */
-    border: none;
+    padding: 20px; /* Increased input padding for visibility */
+    border: 1px solid #EBECF0; /* Lighter gray border */
     border-radius: 4px 0 0 4px;
     background-color: #FFFFFF; /* White background for inputs */
     color: #2E2E2E; /* Dark Gray text color */
     font-size: 16px; /* Adjust font size */
+    transition: border-color 0.3s ease; /* Transition for border color */
+}
+
+.chat-input input:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #FF6F61; /* Coral outline color on focus */
 }
 
 .chat-input button {
-    padding: 15px 30px; /* Larger padding for button */
+    padding: 12px 20px; /* Smaller padding for button */
     border: none;
     border-radius: 0 4px 4px 0;
-    background-color: #743392; /* Green accent color for button */
+    background-color: #88B04B; /* Green accent color for button */
     color: #FFFFFF; /* Button text color */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .chat-input button:hover {
-    background-color: #6B5B95; /* Purple accent color on hover */
+    background-color: #77A65D; /* Purple accent color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chat-container {
+        max-width: 90%; /* Adjust max-width for smaller screens */
+        margin: 10px auto; /* Adjust margin for better positioning */
+    }
+}
+
+/* Accessibility Enhancements */
+input:focus, button:focus {
+    outline: none; /* Remove outline */
 }
