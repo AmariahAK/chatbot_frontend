@@ -4,10 +4,13 @@ from flask import Blueprint, request, jsonify, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from models.user import User
 from config import db
+from flask_cors import cross_origin
+
 
 auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route('/api/auth/register', methods=['POST'])
+@cross_origin(origins='http://localhost:3000')
 def register():
     username = request.json.get('username')
     email = request.json.get('email')
@@ -36,6 +39,7 @@ def register():
     return jsonify({'message': 'User created successfully'}), 201
 
 @auth_bp.route('/api/auth/login', methods=['POST'])
+@cross_origin(origins='http://localhost:3000')
 def login():
     email = request.json.get('email')
     password = request.json.get('password')
@@ -58,6 +62,7 @@ def login():
     }}), 200
 
 @auth_bp.route('/api/auth/logout', methods=['POST'])
+@cross_origin(origins='http://localhost:3000')
 def logout():
     # Clear the session
     session.clear()
@@ -65,6 +70,7 @@ def logout():
     return jsonify({'message': 'Logout successful'}), 200
 
 @auth_bp.route('/api/auth/profile', methods=['POST'])
+@cross_origin(origins='http://localhost:3000')
 def update_profile():
     if 'user_id' not in session:
         return jsonify({'message': 'Unauthorized'}), 401

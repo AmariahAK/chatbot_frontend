@@ -1,4 +1,4 @@
-#!/Users/amariah/Documents/GitHub/chatbot/chatbot-backend/venv/bin/python3.12
+#!/Users/amariah/Documents/GitHub/chatbot/chatbot_frontend/backend/venv/bin/python3.10
 # -*- coding: utf-8 -*-
 import re
 import sys

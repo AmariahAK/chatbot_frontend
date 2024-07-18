@@ -1,34 +1,60 @@
-
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
-import '../css/SignUp.css'; // Ensure your CSS file matches this name
+import '../css/SignUp.css';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const { signUp } = useAuth();
   const navigate = useNavigate();
 
   const handleSignUp = async () => {
     try {
-      // Basic form validation
-      if (!username || !email || !password) {
-        alert('Please fill out all fields.');
+      if (!validateForm()) {
         return;
       }
 
-      // Send signup request to backend
-      const res = await axios.post('http://localhost:5000', { username, email, password });
-      signUp(res.data); // Assuming backend responds with user data
-      navigate('/home'); // Redirect to home page after successful signup
+      setLoading(true);
+      setError('');
+
+      const res = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+      signUp(res.data);
+      navigate('/home');
     } catch (error) {
       console.error('Signup failed:', error);
-      alert('Signup failed. Please try again.');
+      if (error.response && error.response.status === 431) {
+        setError('Request Header Fields Too Large');
+      } else {
+        setError('Signup failed. Please try again.');
+      }
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const validateForm = () => {
+    if (!username || !email || !password || !confirmPassword) {
+      alert('Please fill out all fields.');
+      return false;
+    }
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match.');
+      return false;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      alert('Invalid email format.');
+      return false;
+    }
+
+    return true;
   };
 
   return (
@@ -59,7 +85,16 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)} 
           />
         </div>
-        <button onClick={handleSignUp}>Sign Up</button>
+        <div className="form-group">
+          <label>Confirm Password:</label>
+          <input 
+            type="password" 
+            value={confirmPassword} 
+            onChange={(e) => setConfirmPassword(e.target.value)} 
+          />
+        </div>
+        <button onClick={handleSignUp} disabled={loading}>{loading ? 'Processing...' : 'Sign Up'}</button>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
     </div>
   );

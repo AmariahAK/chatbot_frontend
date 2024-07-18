@@ -1,5 +1,5 @@
-// app.js
 
+import './envUtils';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { MsalProvider } from "@azure/msal-react";
