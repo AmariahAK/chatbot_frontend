@@ -15,6 +15,11 @@ def register():
     username = request.json.get('username')
     email = request.json.get('email')
     password = request.json.get('password')
+    confirm_password = request.json.get('confirmPassword')
+    
+    # Check if password and confirm password match
+    if password != confirm_password:
+        return jsonify({'message': 'Passwords do not match'}), 400
     
     # Check if username or email already exists
     existing_user = User.query.filter_by(username=username).first()
@@ -93,7 +98,6 @@ def update_profile():
         user.password = generate_password_hash(password, method='sha256')
     if profile_pic:
         # Save profile picture to server and update user.profile_pic path
-        # Example:
         profile_pic_path = f'path/to/save/{profile_pic.filename}'
         profile_pic.save(profile_pic_path)
         user.profile_pic = profile_pic_path

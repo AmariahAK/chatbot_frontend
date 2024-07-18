@@ -59,6 +59,8 @@ const Chat = () => {
       } catch (error) {
         console.error('Failed to send or receive message:', error);
         // Display error message or handle error state
+        // Optionally, revert local state changes on error
+        setChatHistory(updatedHistory); // Rollback to previous state on error
       }
     }
   };

@@ -23,7 +23,9 @@ const SignUp = () => {
       setLoading(true);
       setError('');
 
-      const res = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+      const res = await axios.post('http://localhost:5000/api/auth/register', { username, email, password }, {
+        withCredentials: true // Include credentials in the request
+      });
       signUp(res.data);
       navigate('/home');
     } catch (error) {

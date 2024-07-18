@@ -1,15 +1,21 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import axios from 'axios'; // Import axios here
 import '../css/NavBar.css'; // Ensure your CSS file matches this name
 
 const Navbar = () => {
-  const { isAuthenticated, user, logout } = useAuth();
+  const { isAuthenticated, user, logout, token } = useAuth();
 
   const handleLogout = async () => {
     try {
-      await logout(); // Logout function from AuthContext
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`, // Pass your JWT token for authentication
+        },
+      };
+      await axios.post('http://localhost:5000/api/auth/logout', {}, config); // Ensure correct API endpoint
+      await logout(); // Clear user session locally
     } catch (error) {
       console.error('Logout failed', error);
     }
@@ -27,7 +33,7 @@ const Navbar = () => {
             <li><Link to="/chat">Chat</Link></li>
             <li><span>{user.username}</span></li>
             <li><img src={user.profilePic} alt="Profile" className="profile-pic" /></li>
-            <li><Link to="/logout" onClick={handleLogout}>Logout</Link></li>
+            <li><button onClick={handleLogout}>Logout</button></li>
           </>
         ) : (
           <>

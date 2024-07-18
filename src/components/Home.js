@@ -25,7 +25,7 @@ const Home = () => {
         </div>
       </section>
       <div className="get-started">
-        <Link to="/login" className="btn btn-primary">Get Started</Link>
+        <Link to="/signup" className="btn btn-primary">Get Started</Link>
       </div>
     </div>
   );
