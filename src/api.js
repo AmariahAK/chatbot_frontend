@@ -13,7 +13,7 @@ const api = axios.create({
 // Example API function to fetch data
 export const fetchData = async () => {
   try {
-    const response = await api.get('/'); // Base URL is already set in axios instance
+    const response = await api.get('/api/data'); // Adjust endpoint based on your backend routes
     return response.data;
   } catch (error) {
     console.error("Error fetching data", error);
@@ -28,6 +28,50 @@ export const postDataWithCredentials = async (endpoint, data) => {
     return response.data;
   } catch (error) {
     console.error(`Error posting data to ${endpoint}`, error);
+    throw error;
+  }
+};
+
+// Example API function to update data
+export const updateData = async (id, updatedData) => {
+  try {
+    const response = await api.put(`/api/data/${id}`, updatedData); // Adjust endpoint and payload as needed
+    return response.data;
+  } catch (error) {
+    console.error(`Error updating data with ID ${id}`, error);
+    throw error;
+  }
+};
+
+// Example API function to delete data
+export const deleteData = async (id) => {
+  try {
+    const response = await api.delete(`/api/data/${id}`); // Adjust endpoint as needed
+    return response.data;
+  } catch (error) {
+    console.error(`Error deleting data with ID ${id}`, error);
+    throw error;
+  }
+};
+
+// Example API function for user authentication (login, logout, etc.)
+export const authenticateUser = async (credentials) => {
+  try {
+    const response = await api.post('/api/login', credentials);
+    return response.data;
+  } catch (error) {
+    console.error("Error authenticating user", error);
+    throw error;
+  }
+};
+
+// Example API function for user logout
+export const logoutUser = async () => {
+  try {
+    const response = await api.post('/api/logout');
+    return response.data;
+  } catch (error) {
+    console.error("Error logging out user", error);
     throw error;
   }
 };

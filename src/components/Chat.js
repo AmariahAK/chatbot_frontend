@@ -66,25 +66,22 @@ const Chat = () => {
   };
 
   return (
-    <div className="home-container">
-      <h1>Welcome to SupportAI</h1>
-      <div className="chat-container">
-        <div className="chat-history">
-          {chatHistory.map((msg) => (
-            <div key={msg.id} className={`chat-message ${msg.from}`}>
-              {msg.text}
-            </div>
-          ))}
-        </div>
-        <div className="chat-input">
-          <input
-            type="text"
-            value={input}
-            onChange={handleInputChange}
-            placeholder="Ask a question..."
-          />
-          <button onClick={handleSend}>Send</button>
-        </div>
+    <div className="chat-container">
+      <div className="chat-history">
+        {chatHistory.map((msg) => (
+          <div key={msg.id} className={`chat-message ${msg.from}`}>
+            {msg.text}
+          </div>
+        ))}
+      </div>
+      <div className="chat-input">
+        <input
+          type="text"
+          value={input}
+          onChange={handleInputChange}
+          placeholder="Ask a question..."
+        />
+        <button onClick={handleSend}>Send</button>
       </div>
     </div>
   );
