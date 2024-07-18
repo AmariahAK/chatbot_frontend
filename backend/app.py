@@ -9,8 +9,11 @@ from flask_migrate import Migrate
 # Create the Flask app
 app = Flask(__name__, static_folder='../frontend', static_url_path='/')
 
-# Enable CORS for specific origins
-cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+# Enable CORS for specific origins, methods, headers, and credentials
+cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}},
+            supports_credentials=True, 
+            allow_headers=['Content-Type', 'Authorization'],
+            methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'])
 
 # Load configuration from Config class
 app.config.from_object(Config)
