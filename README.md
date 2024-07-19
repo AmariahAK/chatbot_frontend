@@ -122,7 +122,6 @@ The repository contains three branches:
 ## 🤝 Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
-
-
+Remember to add the endpoints for the bot and everything else
 ---
 ```
