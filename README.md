@@ -1,21 +1,32 @@
-🟢 Node.js Backend Branch
-Setup Instructions
-Clone the Repository:
+## 🟢 Node.js Backend Branch
 
-git clone https://github.com/yourusername/chatbot_frontend.git
-cd chatbot_frontend
-git checkout node-backend
-Install Backend Dependencies:
+### Setup Instructions
 
-cd backend
-npm install
-Run the Backend Server:
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/chatbot_frontend.git
+   cd chatbot_frontend
+   git checkout node-backend
+   ```
 
-npm start
-Run the Frontend:
+2. **Install Backend Dependencies:**
+   ```bash
+   cd backend
+   npm install
+   ```
 
-cd ../frontend
-npm install
-npm start
-Notes
-Ensure the backend server is running on http://localhost:5000 and the frontend on http://localhost:3000.
+3. **Run the Backend Server:**
+   ```bash
+   npm start
+   ```
+
+4. **Run the Frontend:**
+   ```bash
+   cd ../frontend
+   npm install
+   npm start
+   ```
+
+### Notes
+
+- Ensure the backend server is running on `http://localhost:5000` and the frontend on `http://localhost:3000`.
