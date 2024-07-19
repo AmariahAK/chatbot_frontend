@@ -1,114 +1,50 @@
-Branch: Flask Backend
-Chatbot Frontend with Flask Backend
-This project is a full-stack web application combining a React frontend with a Flask backend. The application features user authentication, chat functionalities, and integration with Azure for user management.
+Chatbot Frontend Application
+Overview
+This repository hosts a full-stack chatbot application that includes a dynamic React frontend and two optional backend implementations: one in Python (Flask) and another in Node.js. The application allows users to sign up, log in, and interact with a chatbot interface that saves user data to a backend database.
 
-Project Structure
-arduino
-Copy code
-backend/
-├── Pipfile
-├── Pipfile.lock
-├── __pycache__
-│   ├── app.cpython-312.pyc
-│   └── config.cpython-312.pyc
-├── app.py
-├── config.py
-├── instance
-│   └── data.db
-├── migrations
-│   ├── README
-│   ├── alembic.ini
-│   ├── env.py
-│   ├── script.py.mako
-│   └── versions
-│       └── 5661a19e76ec_initial_migration.py
-├── models
-│   ├── chat.py
-│   └── user.py
-├── routes
-│   ├── auth.py
-│   ├── home.py
-│   └── routes.py
-└── venv
-frontend/
-├── src
-│   ├── App.css
-│   ├── App.js
-│   ├── App.test.js
-│   ├── api.js
-│   ├── azureConfig.js
-│   ├── components
-│   │   ├── AuthContext.js
-│   │   ├── Chat.js
-│   │   ├── Home.js
-│   │   ├── Login.js
-│   │   ├── Logout.js
-│   │   ├── Navbar.js
-│   │   ├── Profile.js
-│   │   └── SignUp.js
-│   ├── css
-│   │   ├── Chat.css
-│   │   ├── Home.css
-│   │   ├── Login.css
-│   │   ├── NavBar.css
-│   │   ├── Profile.css
-│   │   ├── SignUp.css
-│   │   └── styles.css
-│   ├── index.css
-│   ├── index.js
-│   ├── logo.svg
-│   ├── reportWebVitals.js
-│   └── setupTests.js
-Setup
-Prerequisites
-Python 3.10
-Node.js
-npm or yarn
-Backend Setup
-Navigate to the backend directory:
+Branches
+The repository contains three branches:
+
+Main Branch: Contains the frontend code and serves as the baseline for the application.
+Python Backend (Flask): Implements the backend using Flask.
+Node.js Backend: Implements the backend using Node.js.
+Plain Frontend: Contains only the frontend code without any backend implementation.
+Main Branch
+Features
+User Authentication: Sign up and log in functionality.
+Chatbot Interface: Allows users to interact with the chatbot.
+Responsive Design: Ensures the application works well on various devices.
+Python Backend (Flask) Branch
+Setup Instructions
+Clone the Repository:
 
 bash
 Copy code
-cd backend
-Create a virtual environment:
+git clone https://github.com/yourusername/chatbot_frontend.git
+cd chatbot_frontend
+git checkout python-backend
+Create a Virtual Environment:
 
 bash
 Copy code
 python3 -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-Install the dependencies:
+Install Dependencies:
 
 bash
 Copy code
 pip install -r requirements.txt
-Run the Flask server:
+Run the Backend Server:
 
 bash
 Copy code
 python app.py
-Frontend Setup
-Navigate to the frontend directory:
+Run the Frontend:
 
 bash
 Copy code
 cd frontend
-Install the dependencies:
-
-bash
-Copy code
 npm install
-Run the React development server:
-
-bash
-Copy code
 npm start
-Deployment
-To create a production build and serve it, run:
-
-bash
-Copy code
-npm run build
-serve -s build
-Usage
-Access the application at http://localhost:3000.
-The Flask API is available at http://localhost:5000.
+Notes
+Ensure the backend server is running on http://localhost:5000 and the frontend on http://localhost:3000.
