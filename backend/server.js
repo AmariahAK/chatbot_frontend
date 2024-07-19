@@ -16,7 +16,7 @@ app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.json()); // Parse JSON request bodies
 
 // MongoDB URI (replace with your MongoDB connection string)
-const mongoURI = 'mongodb+srv://amariahabish:LKEoTsHdwUcS88VG@chatbotfrontend.vnotskk.mongodb.net/?retryWrites=true&w=majority&appName=ChatbotFrontend';
+const mongoURI = "YOUR_MONGO_DB_LINK";
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
