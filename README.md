@@ -9,8 +9,7 @@ This repository hosts a full-stack chatbot application featuring a dynamic React
 
 The repository contains three branches:
 
-- **Main Branch:** Contains the frontend code and serves as the baseline for the application.
-- **Python Backend (Flask):** Implements the backend using Flask.
+- **Main Branch:** Contains the frontend code and serves as the baseline for the application with Python(flask) as the backend.
 - **Node.js Backend:** Implements the backend using Node.js.
 - **Plain Frontend:** Contains only the frontend code without any backend implementation.
 
